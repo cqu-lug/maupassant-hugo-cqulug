@@ -1,0 +1,23 @@
+{{- if not (.Param "hideFooter") }}
+    <footer id="footer">
+        {{- if site.Copyright }}
+            <span>{{ site.Copyright | markdownify }}</span>
+        {{- else }}
+            <span>Copyright &copy; {{ now.Year }} | <i class="fa fa-moon-o"></i><a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span></br>
+        {{- end }}
+        <span>
+            Powered by
+            <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> | Theme by
+            <a href="https://github.com/weearc" rel="noopener" target="_blank">weearc</a>
+        </span></br>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <i class="fa fa-eye"></i><span id="busuanzi_container_site_pv"> 总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span> |
+        <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv"> 访客数 <span id="busuanzi_value_site_uv"></span> 人次 </span></br>
+        <span>
+            <a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank" style="border:none;">
+                {{ site.Params.recordICPInfo }}
+            </a>
+        </span>
+    </footer>
+    {{ partial "clipboard" . }}
+{{- end }}

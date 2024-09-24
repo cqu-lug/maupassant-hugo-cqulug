@@ -1,0 +1,18 @@
+{{ define "main" }}
+    <div id="frlink">
+        {{ range $.Site.Data.links.links }}
+                <a href="{{ .url }}" title="{{ .title }}" target="_blank" class="friendurl">
+                        <div class="frienddiv">
+                            <div class="frienddivleft" target="_blank" href="{{ .url }}">
+                                <img class="myfriend" src="{{ .src }}">
+                            </div>
+                            <div class="frienddivright">
+                                <div class="frlink-title">{{ .title }}</div>
+                                <div class="frlink-des">{{ .dec }}</div>
+                            </div>
+                        </div>
+                    </a>
+        {{ end }}
+    </div>
+
+{{ end }}

@@ -1,0 +1,35 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="{{ if .Params.description }}{{ trim .Params.description "\n" }}{{ else if .Summary }}{{ trim .Summary "<p>\n</p>" }}{{ else if site.Params.description }}{{ trim site.Params.Description "\n" }}{{ end }} {{ if .Params.tags }}TAGS: {{ delimit .Params.tags ", " }}{{ end }}" name="description">
+<meta content="{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ end }}" name="keywords" >
+<meta content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}" name="title">
+<meta name="google-site-verification" content="alQM1UuXbvXlVZiBJFDOVusGSakBpQYyv7f5x2tBGiw" />
+<link rel="canonical" href="{{ .Permalink | safeURL }}" />
+
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ with resources.Get "js/lib/jquery-3.7.1.min.js" }}
+<script src="{{ .Permalink | safeURL }}"></script>
+{{ end }}
+{{ with resources.Get "js/lib/fuse.js" }}
+<script src="{{ .Permalink | safeURL }}"></script>
+{{ end }}
+{{ with resources.Get "css/lib/pure-min.css" }}
+<link href="{{ .Permalink | safeURL }}" rel="stylesheet">
+{{ end }}
+{{ with resources.Get "css/lib/grids-responsive-min.css" }}
+    <link href="{{ .Permalink | safeURL }}" rel="stylesheet">
+{{ end }}
+{{ with resources.Get "css/lib/font-awesome.min.css" }}
+<link href="{{ .Permalink | safeURL }}" rel="stylesheet">
+{{ end }}
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
+{{ if .Param "math" }}
+    {{ if ne .Params.mathjax false }}
+        {{ partialCached "math.html" . }}
+    {{ end }}
+{{ end }}
+

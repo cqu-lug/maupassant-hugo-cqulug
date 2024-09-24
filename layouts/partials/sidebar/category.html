@@ -1,0 +1,14 @@
+<div class="widget">
+    <div class="widget__title">
+        <i class="fa fa-folder-o">{{ i18n "category_widget" }}</i>
+    </div>
+    <ul class="category-list">
+        {{ range .Site.Taxonomies.categories }}
+            <li class="category-list__item">
+                <a class="category-list__link" href="{{ .Page.Permalink }}">
+                    {{ .Page.Title }}
+                </a>
+            </li>
+        {{ end }}
+    </ul>
+</div>

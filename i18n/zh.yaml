@@ -1,0 +1,60 @@
+- id: read_more
+  translation: "阅读全文"
+- id: next_page
+  translation: "下一页"
+- id: prev_page
+  translation: "上一页"
+- id: search_form
+  translation: "搜索"
+- id: category_widget
+  translation: "分类"
+- id: tags_widget
+  translation: "标签"
+- id: list_content_before
+  translation: "正在查看 "
+- id: list_content_after
+  translation: " 下的文章"
+- id: 1月
+  translation: Jan.
+- id: 2月
+  translation: Feb.
+- id: 3月
+  translation: Mar.
+- id: 4月
+  translation: Apr.
+- id: 5月
+  translation: May
+- id: 6月
+  translation: Jun.
+- id: 7月
+  translation: Jul.
+- id: 8月
+  translation: Aug.
+- id: 9月
+  translation: Sep.
+- id: 10月
+  translation: Oct.
+- id: 11月
+  translation: Nov.
+- id: 12月
+  translation: Dec.
+- id: comment_count
+  translation: " 条评论"
+- id: word_count
+  translation: " 字"
+- id: toc_title
+  translation: "文章目录"
+- id: click_to_copy
+  translation: "点击复制"
+- id: copy_done
+  translation: "已复制！"
+- id: author
+  translation: "本文作者: "
+- id: post_link
+  translation: "本文链接: "
+- id: copyright
+  translation: "版权声明: "
+- id: 404_desc
+  translation: "你来到了知识的荒原"
+- id: 404_back_to_home
+  translation: "返回首页"

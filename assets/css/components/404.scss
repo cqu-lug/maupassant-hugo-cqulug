@@ -1,0 +1,20 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    font-size: 100px;
+    font-weight: bolder;
+  }
+
+  span {
+    margin: .8em 0 .5em 0;
+    font-size: 35px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #6E7173;
+  }
+}

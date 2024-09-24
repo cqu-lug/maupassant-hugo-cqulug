@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Your Site</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    {{- $currentPage := . }}
+      <!-- Iterate over main menu items -->
+      {{- range site.Menus.main }}
+        {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+        {{- $page_url:= $currentPage.Permalink | absLangURL }}
+          <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }}">
+            <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+              {{- .Pre }}
+              {{- .Name -}}
+              {{ .Post -}}
+            </span>
+            {{- if (findRE "://" .URL) }}&nbsp;
+              <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                   stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                <path d="M15 3h6v6"></path>
+                <path d="M10 14L21 3"></path>
+              </svg>
+            {{- end }}
+          </a>
+      {{- end }}
+  </div>
+</nav>
+
+
+{{- /**/}}
+{{/*Renders a menu for the given menu ID.*/}}
+{{/**/}}
+{{/*@context {page} page The current page.*/}}
+{{/*@context {string} menuID The menu ID.*/}}
+{{/**/}}
+{{/*@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}*/}}
+{{/**/}}
+{{/**/}}
+{{/*{{- $page := .page }}*/}}
+{{/*{{- $menuID := .menuID }}*/}}
+{{/**/}}
+{{/*{{- with index site.Menus $menuID }}*/}}
+{{/*  <nav>*/}}
+{{/*    <ul>*/}}
+{{/*      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}*/}}
+{{/*    </ul>*/}}
+{{/*  </nav>*/}}
+{{/*{{- end }}*/}}
+{{/**/}}
+{{/*{{- define "partials/inline/menu/walk.html" }}*/}}
+{{/*  {{- $page := .page }}*/}}
+{{/*  {{- range .menuEntries }}*/}}
+{{/*    {{- $attrs := dict "href" .URL }}*/}}
+{{/*    {{- if $page.IsMenuCurrent .Menu . }}*/}}
+{{/*      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}*/}}
+{{/*    {{- else if $page.HasMenuCurrent .Menu .}}*/}}
+{{/*      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}*/}}
+{{/*    {{- end }}*/}}
+{{/*    <li>*/}}
+{{/*      <a*/}}
+{{/*        {{- range $k, $v := $attrs }}*/}}
+{{/*          {{- with $v }}*/}}
+{{/*            {{- printf " %s=%q" $k $v | safeHTMLAttr }}*/}}
+{{/*          {{- end }}*/}}
+{{/*        {{- end -}}*/}}
+{{/*      >{{ or (T .Identifier) .Name | safeHTML }}</a>*/}}
+{{/*      {{- with .Children }}*/}}
+{{/*        <ul>*/}}
+{{/*          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}*/}}
+{{/*        </ul>*/}}
+{{/*      {{- end }}*/}}
+{{/*    </li>*/}}
+{{/*  {{- end }}*/}}
+{{/*{{- end }}*/}}

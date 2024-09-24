@@ -1,0 +1,36 @@
+@import 'components/pagination';
+@import 'components/home-article-list';
+@import 'components/body-container';
+@import 'components/header';
+@import 'components/nav-menu';
+@import 'components/sidebar/sidebar';
+@import 'components/list-content';
+@import "components/footer";
+@import "components/frlink";
+@import "components/content";
+@import "components/copybutton";
+@import "components/copyright";
+@import "components/page-navbutton";
+@import "components/search-list";
+@import "components/404";
+@import "components/about";
+
+
+
+div {
+  box-sizing: border-box;
+  display: block;
+}
+
+a {
+
+  -webkit-transition: all .1s ease-in;
+  -moz-transition: all .1s ease-in;
+  -o-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+
+  &:active, &:hover {
+    color: #444;
+  }
+}
+

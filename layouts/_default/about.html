@@ -1,0 +1,59 @@
+{{ define "main" }}
+    <div id="about__container">
+        <div id="about__left">
+            <div id="about__avatar">
+                <img src="https://blog.weearc.top/image/face.ico">
+            </div>
+            <div class="about__content">
+                {{ range $.Site.Data.me.links }}
+                <div class="about__contact">
+
+                    <a href="{{ .url }}">
+                        <i class="fa {{ .icon }}"></i>
+                        {{ .name }}
+                    </a>
+                </div>
+                {{ end }}
+
+            </div>
+        </div>
+        <div id="about__right">
+            <div class="about__eduinfo about_content">
+                    <ul>
+                    {{ range $.Site.Data.me.data.edu_info }}
+                        <li class="eduinfo__detail">
+                            <span>{{ .time }}</span>&nbsp&#9<span>{{ .school }}</span>&nbsp&#9
+                            <span>{{ .major }}</span>&nbsp&#9<span>{{ .degree }}</span>&nbsp&#9
+                            <span>{{ .comment }}</span>&nbsp&#9
+                        </li>
+                    {{ end }}
+                    </ul>
+            </div>
+            <div class="about__workinfo about_content">
+                <ul>
+                    {{ range $.Site.Data.me.data.work_info }}
+                    <li>
+                        <span>{{ .time }}</span>&nbsp&#9<span>{{ .company }}</span>&nbsp&#9
+                        <span>{{ .department }}</span>&nbsp&#9<span>{{ .position }}</span>&nbsp&#9
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="about__self_comment about_content">
+                <p>{{ $.Site.Data.me.data.self_comment }}</p>
+            </div>
+            <div class="about__self_game about_content">
+                <p>{{ $.Site.Data.me.data.self_game }}</p>
+            </div>
+            <div class="about__self_music about_content">
+                <p>{{ $.Site.Data.me.data.self_music }}</p>
+            </div>
+            <div class="about_gpg about_content">
+                <p>
+                    <code>{{ $.Site.Data.me.data.gpg }}</code>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{{ end }}

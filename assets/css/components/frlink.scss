@@ -1,0 +1,105 @@
+#frlink {
+  // friend links
+  // large
+  .friendurl {
+    text-decoration: none !important;
+    color: black;
+
+    .frienddiv {
+      height: 92px;
+      margin-top: 10px;
+      width: 31.3%;
+      background-color: rgba(255, 255, 255, 0.603);
+      display: inline-block !important;
+      float: left;
+      padding-left: 2%;
+
+      &:hover {
+        background: rgba(87, 142, 224, 0.15);
+      }
+
+      .frienddivleft {
+        margin-right: 2px;
+        width: 92px;
+        float: left;
+
+        .myfriend {
+          width: 56px !important;
+          height: 56px !important;
+          border-radius: 50%;
+          border: 1px solid #ddd;
+          padding: 2px;
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+          margin-top: 14px !important;
+          margin-left: 14px !important;
+          background-color: #fff;
+        }
+
+      }
+
+      .frienddivright {
+        margin-top: 18px;
+        margin-right: 18px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-word;
+
+        .frlink-title {
+          color: #555!important;
+          text-align: left;
+          font: bold 16px "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        }
+
+        .frlink-des {
+          color: #6E7173;
+          text-align: left;
+          font-size: 14px;
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+
+
+
+
+}
+
+// big
+@media print,
+screen and (max-width: 900px) {
+  .frienddivright {
+    white-space: nowrap;
+    word-break: unset;
+  }
+}
+
+// middle
+@media print,
+screen and (max-width: 850px) {
+  .frienddiv {
+    width: 48%!important;
+    padding-left: 1%!important;
+  }
+  .frienddivright {
+    white-space: nowrap;
+    word-break: unset;
+  }
+}
+
+// small
+@media print,
+screen and (max-width: 768px) {
+  .frienddiv {
+    width: 100%!important;
+  }
+  .frienddivright {
+    white-space: nowrap;
+    word-break: unset;
+  }
+}

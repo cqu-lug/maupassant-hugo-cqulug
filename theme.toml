@@ -1,0 +1,19 @@
+name = 'Maupassant'
+license = 'MIT'
+licenselink = 'https://github.com/weearc/Maupassant-hugo-reload/LICENSE'
+description = 'Maupassant for hugo'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/weearc/maupassant-hugo'
+
+# If you have a running demo of the theme
+demosite = 'https://blog.weearc.top'
+
+# Taxonomy terms
+tags = ['blog', 'simple']
+
+# If the theme has a single author
+[author]
+  name = 'weearc'
+  homepage = 'https://blog.weearc.top'
+

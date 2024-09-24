@@ -1,0 +1,107 @@
+.content__container {
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+@media print, screen and (max-width: 35.5em) {
+  .content__container {
+    padding-right: 0;
+  }
+}
+
+@media print, screen and (max-width: 48em) {
+  .content__container {
+    padding-right: 15px;
+  }
+}
+
+
+
+.post {
+  padding: 25px 0 15px;
+  box-sizing: border-box;
+
+  .post__title {
+    margin: 0;
+    color: #555!important;
+    text-align: left;
+    font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+
+    a {
+      text-decoration: none;
+      color: #555;
+    }
+  }
+
+  .post__meta {
+    padding: 0;
+    margin: 15px 0 0;
+    color: #6E7173;
+    float: left;
+    display: inline;
+    text-indent: .15em;
+    font-size: 14px;
+
+    &:before {
+      font-family: "FontAwesome";
+      content: "\f073";
+      padding-right: 0.3em;
+    }
+  }
+
+  .post__content {
+    clear: left;
+    font-size: 15px;
+    line-height: 1.77;
+    color: #444;
+    padding-top: 15px;
+    text-align: justify;
+    text-justify: distribute;
+    word-break: normal;
+
+    a {
+      color: #1abc9c;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  .readmore {
+    font-size: 14px;
+    color: #444;
+    margin: -10px 0;
+    padding: 5px 10px;
+    border: 3px solid #f4f4f4;
+    border-radius: 2px;
+    float: right;
+
+    &:hover {
+      background-color: #F8F8F8;
+      border-bottom-color: #1abc9c;
+    }
+
+    a {
+      text-decoration: none;
+      color: #555;
+
+      &:after {
+        font-family: "FontAwesome";
+        content: "\f101";
+        padding-left: 0.3em;
+      }
+
+    }
+
+  }
+}

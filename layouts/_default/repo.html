@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ .Content }}
+    <table class="pure-table">
+        <thead>
+        <tr>
+            <th>Package Name</th>
+            <th>Build Status</th>
+            <th>Description</th>
+            <th>Upstream URL</th>
+            <th>License</th>
+            <th>Download</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range $.Site.Data.repo.packages }}
+            <tr>
+                <td>{{ .name }}</td>
+                <td>
+                    <a href="https://build.opensuse.org/package/show/home:weearcm/{{ .name }}" target="_blank">
+                        <img loading="lazy" src="https://build.opensuse.org/projects/home:weearcm/packages/{{ .name }}/badge.svg?type={{ .badge }}" alt="build result">
+                    </a>
+                </td>
+                <td>{{ .desc }}</td>
+                <td>{{ .upstream_url }}</td>
+                <td>{{ .license }}</td>
+                <td>
+                    {{ if (.multi) }}
+                        {{ range (.multi) }}
+                            <a href="https://software.opensuse.org/download.html?project=home%3Aweearcm&package={{ . }}" target="_blank">{{ . }}</a><br/>
+                        {{ end }}
+                    {{ else }}
+                    <a href="https://software.opensuse.org/download.html?project=home%3Aweearcm&package={{ if (.p_name) }}{{ .p_name }}{{ else }}{{ .name }}{{ end }}" target="_blank">{{ if (.p_name) }}{{ .p_name }}{{ else }}{{ .name }}{{ end }}</a>
+                    {{ end }}
+                </td>
+            </tr>
+        {{ end }}
+        </tbody>
+    </table>
+
+{{ end }}

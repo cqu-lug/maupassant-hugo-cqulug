@@ -1,0 +1,16 @@
+{{- $data := newScratch -}}
+{{- $data.Add "index" slice -}}
+{{- range .Site.RegularPages -}}
+{{- $contents := .Plain -}}
+{{- range .Resources.Match "*.md" -}}
+{{- $contents = printf "%s\n%s\n%s" $contents .Title .Plain -}}
+{{- end -}}
+{{- $section := .CurrentSection.Title -}}
+{{- if .CurrentSection.Parent -}}
+{{- if not .CurrentSection.Parent.IsHome -}}
+{{- $section = printf "%s / %s" .CurrentSection.Parent.Title $section -}}
+{{- end -}}
+{{- end -}}
+{{- $data.Add "index" (dict "title" .Title "section" $section "tags" .Params.tags "categories" .Params.categories "contents" $contents "permalink" .Permalink) -}}
+{{- end -}}
+{{- $data.Get "index" | jsonify (dict "indent" "  ") -}}

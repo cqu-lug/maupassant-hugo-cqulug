@@ -1,0 +1,40 @@
+<script>
+    var htmlCopyButton = `
+    <div id="codeblock-titlebar">
+        <span id="lang-title" style="font-size: 5px"></span>
+        <button id="clipboard-btn" class="codecopy-btn tooltipped tooltipped-sw" aria-label="Copy to clipboard">
+            <span id="clipboard-btn-icon" class="fa fa-copy" aria-hidden="true"></span>
+            {{ i18n "click_to_copy" }}
+        </button>
+    </div>
+    `;
+
+    $('.highlight').each(function(index) {
+        $(this).prepend(htmlCopyButton)
+    });
+
+    $('.codecopy-btn').click(function() {
+        var parent = $(this).parent().parent();
+        var title = $(this).parent();
+        var siblingsNext = parent.children().not(title);
+        var tbody = siblingsNext.find('table tbody');
+        var td = tbody.find('tr:eq(0)').find('td:eq(1)');
+        if ('clipboard' in navigator) {
+            navigator.clipboard.writeText(td[0].textContent);
+
+            this.innerHTML = `
+            <span id="clipboard-btn-icon" class="fa fa-check" aria-hidden="true"></span>
+            {{ i18n "copy_done" }}
+            `;
+            setTimeout(() => {
+                this.innerHTML = `
+                <span id="clipboard-btn-icon" class="fa fa-copy" aria-hidden="true"></span>
+                {{ i18n "click_to_copy" }}
+                `;
+            }, 900);
+
+
+            return;
+        };
+    });
+</script>

@@ -1,0 +1,12 @@
+<div class="widget">
+    <div class="widget__title">
+        <i class="fa fa-tag">
+            {{ i18n "tags_widget" }}
+        </i>
+    </div>
+    <div class="tagcloud">
+        {{ range $tagName, $taxonomy := .Site.Taxonomies.tags }}
+            <a href="{{ .Page.Permalink }}">{{ $tagName }}</a>
+        {{ end }}
+    </div>
+</div>

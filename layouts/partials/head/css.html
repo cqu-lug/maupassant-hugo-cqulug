@@ -1,0 +1,10 @@
+{{ $sass := resources.Get "css/main.scss" }}
+{{ $style := $sass | resources.ToCSS | resources.Fingerprint }}
+
+{{- if eq hugo.Environment "development" }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+{{- else }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
+{{- end }}
+
+

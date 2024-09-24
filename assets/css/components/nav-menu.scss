@@ -1,0 +1,45 @@
+#nav-menu {
+  a {
+    display: inline-block;
+    padding: 3px 20px 3px;
+    line-height: 30px;
+    color: #444;
+    font-size: 13px;
+    border: 1px solid transparent;
+    text-decoration: none;
+
+    &:hover {
+      border-bottom-color: #1abc9c;
+    }
+
+  }
+  .current {
+    border: 1px solid #86ffdb;
+    border-bottom-color: #86ffdb;
+    background-color: #86ffdb;
+  }
+
+  .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &:before {
+      margin-right: .3rem;
+    }
+  }
+
+}
+
+@media print, screen and (max-width: 48em) {
+  #header #nav-menu a {
+    padding: 0 15px;
+    line-height: 27px;
+    height: 27px;
+    font-size: 13px;
+  }
+}
+

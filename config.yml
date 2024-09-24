@@ -1,0 +1,125 @@
+baseURL: "" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+title:
+description:
+author:
+paginate: 5
+theme: Maupassant
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: ""
+  author: weearc
+  copyright: ""
+  copyrightLicense: "CC BY-NC-SA 4.0"
+  copyrightURL: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  recordICPInfo:
+  math: false
+  useHLJS: true
+
+  # valine.js
+  valine:
+    serverID:
+    appid:
+    appkey:
+    placeholder: ''
+    notify: true
+    verify: true
+    path: ''
+  ShowShareButtons: false
+  ShowReadingTime: true
+  ShowToc: true
+  comments: true
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+#pygmentsUseClasses: true
+#pygmentsCodefences: true
+defaultContentLanguage: zh
+# googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+languages:
+    zh:
+        languageName: "Chinese"
+        weight: 1
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        menu:
+            main:
+                - name: 首页
+                  url: /
+                  weight: 1
+                  params:
+                    icon: fa-home
+                - name: 归档
+                  url: archives/
+                  weight: 5
+                  params:
+                    icon: fa-archive
+                - name: 关于
+                  url: about/
+                  weight: 25
+                  params:
+                    icon: fa-user
+                - name: 友链
+                  url: frlink/
+                  weight: 20
+                  params:
+                    icon: fa-link
+                - name: 订阅
+                  url: index.xml
+                  weight: 30
+                  params:
+                    icon: fa-rss
+
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+            - - $
+              - $
+          enable: true
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+    style: "emacs"
+    tabWidth: 4
+
+
